@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DemoAngularMaterialModule } from './demo-angular-material/demo-angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
     DemoAngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
