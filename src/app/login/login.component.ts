@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { AuthService } from '../services/auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
+import { UserStorageService } from '../services/storage/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,11 @@ export class LoginComponent {
   ) { }
 
   ngOnInit(): void {
+    if (UserStorageService.isAdminLoggedIn()) {
+      this.router.navigate(['/admin/dashboard']);
+    } else if (UserStorageService.isCustomerLoggedIn()) {
+      this.router.navigate(['/customer/dashboard']);
+    }
     this.loginForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, Validators.required]
@@ -40,7 +46,15 @@ export class LoginComponent {
 
     this.authService.login(username, password).subscribe(
       (res) => {
-        this.snackBar.open('Login Success', 'Ok', { duration: 5000 })
+        if (UserStorageService.isAdminLoggedIn()) {
+          this.router.navigateByUrl("admin/dashboard");
+          this.snackBar.open('Login Success', 'Ok', { duration: 5000 })
+        }
+        else if (UserStorageService.isCustomerLoggedIn()) {
+          console.log(UserStorageService.isCustomerLoggedIn());
+          this.router.navigateByUrl("customer/dashboard");
+          this.snackBar.open('Login Success', 'Ok', { duration: 5000 })
+        }
       },
       (err) => {
         this.snackBar.open('Bad Credentials', 'ERROR', { duration: 5000 })

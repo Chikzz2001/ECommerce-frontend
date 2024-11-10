@@ -20,8 +20,12 @@ export class UserStorageService {
     window.localStorage.setItem(USER, JSON.stringify(user));
   }
 
-  static getToken(): string {
-    return localStorage.getItem(TOKEN);
+  static getToken(): string | null {
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem(TOKEN);
+
+    }
+    return null;
   }
 
   static getUser(): any {

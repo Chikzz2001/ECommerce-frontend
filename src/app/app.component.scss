@@ -1,51 +1,60 @@
-.container {
+.navbar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-}
+    justify-content: space-between;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+    background: #b9b7b7;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0c0b0b;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
 
-mat-card {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-
-    @media screen and (max-width: 500px) {
-        max-width: 90%;
+  button[mat-button] {
+    color: #650808;
+    margin: 0 10px;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: none;
+    transition: color 0.3s;
+  }
+  
+  button[mat-button].active {
+    color: #41130d;
+    font-weight: bold;
+    border-bottom: 2px solid #41130d;
+  }
+  
+  button[mat-button]:hover {
+    color: #ff5f3b;
+  }
+  
+  button.logout-button {
+    color: #2e0a0a;
+    font-weight: bold;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .navbar-brand {
+      font-size: 1.2em;
     }
-}
-
-mat-card-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-button {
-    width: 100%;
-}
-
-@media screen and (max-width: 500px) {
-    mat-card-title {
-        font-size: 20px;
+ 
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
     }
-
-    mat-form-field {
-        margin-bottom: 10px;
+  
+    button[mat-button] {
+      font-size: 0.9em;
+      margin: 5px 0;
     }
-}
-
-.error-snackbar {
-    background-color: #f44336 !important;
-}
+  }
+  
