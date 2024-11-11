@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DemoAngularMaterialModule } from '../../../demo-angular-material/demo-angular-material.module';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from '../../service/admin.service';

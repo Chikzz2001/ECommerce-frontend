@@ -1,42 +1,105 @@
 .container {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    margin-top: 90px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 
     h2 {
-        text-align: center;
+        font-size: 24px;
+        color: #5c1c1c;
         margin-bottom: 20px;
-        color: #5a1b1b;
+    }
+
+    .file-upload-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .file-upload-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            background-color: #5c1c1c;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #321511;
+            }
+
+            mat-icon {
+                font-size: 18px;
+                margin-left: 8px;
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+        }
+
+        .image-preview {
+            margin-top: 10px;
+            .circle-image {
+                width: 100%;
+                height: 100%;
+                // border-radius: 2%;
+                overflow: hidden;
+                border: 2px solid #5c1c1c;
+
+                .preview-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
     }
 
     form {
         display: flex;
         flex-direction: column;
+        gap: 15px;
+
+        .form-field {
+            width: 100%;
+        }
 
         mat-form-field {
-            margin-bottom: 20px;
-
-            .mat-form-field-wrapper {
-                border-radius: 4px;
-                border: 1px solid #ccc;
+            width: 100%;
+            .mat-form-field-outline-start,
+            .mat-form-field-outline-end {
+                color: #5c1c1c;
             }
-
-            .mat-form-field-outline {
-                border-width: 1px;
-            }
-
-            .mat-input-element {
-                color: #5a1b1b;
-                /* Update with your desired color code */
+            .mat-label {
+                color: #757575;
             }
         }
 
-        button {
-            align-self: center;
+        button[type="submit"] {
+            margin-top: 20px;
+            padding: 5px;
+            font-size: 16px;
+            background-color: #5c1c1c;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #321511;
+            }
         }
     }
 }
+
 
 @media (max-width: 600px) {
     .container {
