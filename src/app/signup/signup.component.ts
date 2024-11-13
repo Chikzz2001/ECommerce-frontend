@@ -5,13 +5,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 
-
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [DemoAngularMaterialModule, ReactiveFormsModule ],
+  imports: [DemoAngularMaterialModule, ReactiveFormsModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss'
+  styleUrls: ['./signup.component.scss'] 
 })
 export class SignupComponent {
   signupForm!: FormGroup;
@@ -27,7 +26,7 @@ export class SignupComponent {
   ngOnInit(): void {
     this.signupForm = this.fb.group({
       name: [null, Validators.required],
-      email: [null, Validators.required, Validators.email],
+      email: [null, [Validators.required, Validators.email]], 
       password: [null, Validators.required],
       confirmPassword: [null, Validators.required]
     });
@@ -52,9 +51,9 @@ export class SignupComponent {
         this.router.navigateByUrl("/login");
       },
       (error) => {
-        this.snackBar.open('sign up failed. Please try again.', "Close", { duration: 5000, panelClass: "error-snackBar" });
+        this.snackBar.open('Sign up failed. Please try again.', "Close", { duration: 5000, panelClass: "error-snackBar" });
       }
-    )
+    );
   }
 }
 
