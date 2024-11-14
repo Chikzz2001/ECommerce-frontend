@@ -43,9 +43,14 @@ export class DashboardComponent {
   }
 
   addToCart(productId: number) {
-    
+    console.log(productId);
+    this.customerService.addToCart(productId).subscribe(
+      res => {
+        this.snackBar.open("Product added to cart successfully", "Close", { duration: 5000 })
+      }
+    )
   }
- 
+
   submitForm() {
     this.products = [];
     const title = this.searchProductForm.get('title')!.value;
