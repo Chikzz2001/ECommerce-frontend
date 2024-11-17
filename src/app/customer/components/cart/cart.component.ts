@@ -48,9 +48,11 @@ export class CartComponent {
 
   getCart() {
     this.cartItems = [];
+    console.log(UserStorageService.getUserId());
     this.customerService.getCartByUserId(UserStorageService.getUserId()).subscribe(
       res => {
         this.order = res;
+        console.log(this.order);
         res.cartItems.forEach(element => {
           element.processedImg = 'data:image/jpeg;base64,' + element.returnedImg;
           this.cartItems.push(element);
@@ -70,7 +72,7 @@ export class CartComponent {
   }
 
   decreaseQuantity(productId: any) {
-    this.customerService.increaseProductQuantity(productId).subscribe(
+    this.customerService.decreaseProductQuantity(productId).subscribe(
       res => {
         this.snackBar.open("Product quantity decreased.", "Close", { duration: 5000 });
         this.getCart();

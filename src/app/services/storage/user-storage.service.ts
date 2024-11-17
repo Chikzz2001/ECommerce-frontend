@@ -28,17 +28,32 @@ export class UserStorageService {
     return null;
   }
 
-  static getUser(): any {
-    return JSON.parse(localStorage.getItem(USER));
+  static isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }
 
-  static getUserId(): string {
-    const user = this.getUser();
-    if (user == null) {
-      return "";
+  static getUser(): any {
+    if (this.isBrowser()) {
+      return JSON.parse(localStorage.getItem(USER) || '{}');
     }
-    return user.userId;
+    return null; // Return a fallback value in a server context
   }
+  // static getUser(): any {
+  //   return JSON.parse(localStorage.getItem(USER));
+  // }
+
+  static getUserId(): string | null {
+    const user = this.getUser();
+    return user ? user.userId : "";
+  }
+
+  // static getUserId(): string {
+  //   const user = this.getUser();
+  //   if (user == null) {
+  //     return "";
+  //   }
+  //   return user.userId;
+  // }
 
   static getUserRole(): string {
     const user = this.getUser();
