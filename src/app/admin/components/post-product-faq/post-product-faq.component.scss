@@ -1,0 +1,80 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  /* Header styling */
+  .container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Material form field adjustments */
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  textarea {
+    font-size: 16px;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 18px;
+    }
+  
+    textarea {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 12px;
+      padding: 6px;
+    }
+  }
+  
