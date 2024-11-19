@@ -78,8 +78,13 @@ export class CustomerService {
 
   getOrdersByUserId(): Observable<any> {
     const userId = UserStorageService.getUserId()
-    // console.log(UserStorageService.getUserId());
     return this.http.get(BASIC_URL + `myOrders/${userId}`, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  getOrderedProducts(orderId: number): Observable<any> {
+    return this.http.get(BASIC_URL + `ordered-products/${orderId}`, {
       headers: this.createAuthorizationHeader()
     })
   }

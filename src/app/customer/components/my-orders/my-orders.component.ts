@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { DemoAngularMaterialModule } from '../../../demo-angular-material/demo-angular-material.module';
 import { CustomerService } from '../../services/customer.service';
-import { UserStorageService } from '../../../services/storage/user-storage.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-my-orders',
   standalone: true,
-  imports: [DemoAngularMaterialModule],
+  imports: [DemoAngularMaterialModule, RouterModule],
   templateUrl: './my-orders.component.html',
   styleUrl: './my-orders.component.scss'
 })
