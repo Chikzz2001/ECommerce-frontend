@@ -101,6 +101,19 @@ export class CustomerService {
     })
   }
 
+  addProductToWishlist(wishlistDto: any): Observable<any> {
+    return this.http.post(BASIC_URL + `wishlist`, wishlistDto, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  getWishlistByUserId(): Observable<any> {
+    const userId = UserStorageService.getUserId()
+    return this.http.get(BASIC_URL + `wishlist/${userId}`, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   private createAuthorizationHeader(): HttpHeaders {
     return new HttpHeaders().set(
       'Authorization', 'Bearer ' + UserStorageService.getToken()
