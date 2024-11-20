@@ -1,0 +1,185 @@
+/* General Styles */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.product-card, .review-card, .faq-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-image img, .review-image img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-details, .review-details, .faq-details {
+    flex: 1;
+}
+
+h1.section-heading {
+    font-size: 24px;
+    text-align: center;
+    margin: 30px 0 10px;
+    color: #333;
+}
+
+.details.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.review-image .small-image {
+    width: 100px;
+    height: 100px;
+}
+
+.faq-list {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.faq-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.faq-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-details .question {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.faq-details .question-text {
+    font-size: 15px;
+    margin: 5px 0 10px;
+    color: #555;
+}
+
+.faq-details .answer {
+    font-weight: bold;
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+}
+
+.faq-details .answer-text {
+    font-size: 14px;
+    margin: 5px 0 0;
+    color: #666;
+}
+
+/* Responsive Styles for FAQ Section */
+@media (max-width: 768px) {
+    .faq-card {
+        padding: 15px;
+    }
+
+    .faq-details .question,
+    .faq-details .answer {
+        font-size: 15px;
+    }
+
+    .faq-details .question-text,
+    .faq-details .answer-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-card {
+        padding: 10px;
+    }
+
+    .faq-details .question,
+    .faq-details .answer {
+        font-size: 14px;
+    }
+
+    .faq-details .question-text,
+    .faq-details .answer-text {
+        font-size: 13px;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-card, .review-card, .faq-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .product-image img, .review-image img {
+        max-width: 100%;
+        max-height: 200px;
+        margin: 0 auto;
+    }
+
+    h1.section-heading {
+        font-size: 20px;
+    }
+
+    .details.row {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .center-container {
+        padding: 5px;
+    }
+
+    .product-card, .review-card, .faq-card {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1.section-heading {
+        font-size: 18px;
+    }
+
+    .product-image img, .review-image img {
+        max-width: 100%;
+        max-height: 150px;
+    }
+
+    .details.row p {
+        font-size: 14px;
+    }
+}

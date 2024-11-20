@@ -4,11 +4,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomerService } from '../../services/customer.service';
 import { DemoAngularMaterialModule } from '../../../demo-angular-material/demo-angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [DemoAngularMaterialModule, ReactiveFormsModule, HttpClientModule],
+  imports: [DemoAngularMaterialModule, ReactiveFormsModule, HttpClientModule, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
