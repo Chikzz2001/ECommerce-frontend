@@ -15,7 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 
@@ -29,6 +29,7 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatToolbarModule,
     MatSelectModule,
+    MatOptionModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
@@ -51,6 +52,7 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatToolbarModule,
     MatSelectModule,
+    MatOptionModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
