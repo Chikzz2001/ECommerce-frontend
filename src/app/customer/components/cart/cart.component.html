@@ -35,16 +35,29 @@
 
     <div class="container" *ngIf="order.couponName == null">
         <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
-            <mat-form-field appearance="outline" class="form-field">
-                <mat-label>Code</mat-label>
-                <input matInput type="text" placeholder="Code" formControlName="code" />
-                <mat-error *ngIf="couponForm.get('code')?.hasError('required')">This input is required!</mat-error>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" type="submit">Apply Coupon</button>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Coupon Code</mat-label>
+            <mat-select formControlName="code">
+              <mat-option 
+                *ngFor="let coupon of coupons" 
+                [value]="coupon.code">
+                <span (mouseover)="hoveredCoupon = coupon" (mouseleave)="hoveredCoupon = null">
+                  {{ hoveredCoupon === coupon 
+                    ? coupon.code + ' | ' + coupon.discount + '% | ' + (coupon.expirationDate | date: 'dd/MM/yyyy') 
+                    : coupon.code }}
+                </span>
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="couponForm.get('code')?.hasError('required')">
+              This field is required!
+            </mat-error>
+          </mat-form-field>
+      
+          <button mat-raised-button color="primary" type="submit">Apply Coupon</button>
         </form>
-    </div>
+    </div> 
 </div>
+    
 
 
 <ng-template #emptyCart>

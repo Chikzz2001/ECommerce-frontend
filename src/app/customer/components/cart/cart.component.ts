@@ -17,6 +17,8 @@ import { PlaceOrderComponent } from '../place-order/place-order.component';
 export class CartComponent {
   cartItems: any[] = [];
   order: any;
+  coupons: any[] = [];
+  hoveredCoupon: any = null;
 
   couponForm !: FormGroup;
 
@@ -32,6 +34,7 @@ export class CartComponent {
       code: [null, [Validators.required]]
     })
     this.getCart();
+    this.getCoupons();
   }
 
   applyCoupon() {
@@ -83,5 +86,15 @@ export class CartComponent {
   placeOrder() {
     this.dialog.open(PlaceOrderComponent);
   }
+
+  getCoupons() {
+    this.customerService.getAllCoupons().subscribe(
+      res => {
+        this.coupons = res;
+        console.log(res);
+      }
+    )
+  }
+  
 }
 
